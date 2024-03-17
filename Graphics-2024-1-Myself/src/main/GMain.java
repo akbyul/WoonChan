@@ -10,8 +10,7 @@ public class GMain {
 
 	public static void main(String[] args) {        
         GMainframe mainframe = new GMainframe();
-        mainframe.setVisible(true);
-      
+        mainframe.setVisible(true);      
 	}
 
 }

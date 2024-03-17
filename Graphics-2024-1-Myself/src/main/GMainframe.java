@@ -4,26 +4,33 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
+import View_Frame.GDrawingPanel;
+import View_Frame.GMenubar;
+import View_Frame.GToolbar;
+
 public class GMainframe extends JFrame{
-	
-	/**
-	 * 
-	 */
+	private static final long serialVersionUID = 1L;
+	private GMenubar menubar;
     private GToolbar toolbar;
-    private GCanvas canvas;
+    private GDrawingPanel canvas;
 
     public GMainframe() {
-        setTitle("Sketchbook");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
+        this.setTitle("Sketchbook");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(800, 600);
         
-        canvas = new GCanvas();
-        toolbar = new GToolbar(canvas);
+        this.menubar = new GMenubar();
+        this.canvas = new GDrawingPanel();
+        this.toolbar = new GToolbar(); 
         
-
-        setLayout(new BorderLayout());
-        add(toolbar, BorderLayout.NORTH);
-        add(canvas, BorderLayout.CENTER);
+        this.setLayout(new BorderLayout());
+        this.setJMenuBar(this.menubar);
+        
+        this.add(toolbar, BorderLayout.NORTH);
+        this.add(canvas, BorderLayout.CENTER);
+        
+        // 툴바 바인딩.
+        this.canvas.setToolbar(toolbar);
 	}
 
 }
